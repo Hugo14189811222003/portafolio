@@ -1,0 +1,159 @@
+.content-center{
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.infoContent{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+#title{
+  font-size: 80px;
+}
+#subtitle{
+    font-size: 40px;
+    color: rgba(0, 0, 0, 0.700);
+}
+img{
+  margin: 0;
+  padding: 0;
+}
+h1, h2{
+  margin: 0;
+  padding: 0;
+}
+.StyleOfButton{
+  padding-left: 40.2px;
+  padding-right: 40.2px;
+  padding-top: 18.1px;
+  padding-block: 18.1px;
+  margin-top: 15px;
+  text-align: center;
+  border: 2px solid black;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: medium;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+#buttomBack{
+    background-color: black;
+    color: white;
+}
+#buttomOuline{
+    background-color: white;
+    color: black;
+}
+.button-gap {
+    display: flex;
+    gap: 25px;
+}
+
+@keyframes levitar {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.ilustracionFlotando {
+  animation: levitar 3s ease-in-out infinite;
+  will-change: transform;
+  margin-top: 25px;
+}
+/* Versión movil */
+
+@media screen and (max-width: 768px) {
+  #title{
+    font-size: 70px;
+    padding-right: 55px;
+    padding-left: 55px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  #subtitle{
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.700);
+  }
+  .button-gap {
+    margin-top: 40px;
+    margin-bottom: 15px;
+  }
+}
+
+@media screen and (max-width: 458px) {
+  #title{
+    font-size: 55px;
+    padding-right: 55px;
+    padding-left: 55px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  #subtitle{
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.700);
+  }
+  .button-gap {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .StyleOfButton{
+    padding-left: 30.2px;
+    padding-right: 30.2px;
+    padding-top: 18.1px;
+    padding-block: 18.1px;
+    margin-top: 15px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .ilustracionFlotando{
+    width: 350px;
+    height: auto;
+    margin-bottom: 70px;
+  }
+}
+
+@media screen and (max-width: 370px) {
+  #title{
+    font-size: 55px;
+    padding-right: 55px;
+    padding-left: 55px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+  }
+  #subtitle{
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.700);
+  }
+  .button-gap {
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+  .StyleOfButton{
+    padding-left: 30.2px;
+    padding-right: 30.2px;
+    padding-top: 18.1px;
+    padding-block: 18.1px;
+    margin-top: 15px;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  .ilustracionFlotando{
+    width: 250px;
+    height: auto;
+    margin-bottom: 70px;
+  }
+}

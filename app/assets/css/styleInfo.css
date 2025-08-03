@@ -1,0 +1,101 @@
+.plastaNegra{
+  background: #000;
+  margin: 0;
+  padding: 0;
+  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.flip-card{
+  gap: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.flip-card-front{
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: medium solid white;
+  background-color: black;
+  transition: .3s ease-in;
+  width: 60vh;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+.flip-card-front p{
+    padding-left: 45px;
+    padding-right: 45px;
+    margin: 5px;
+    margin-top: 15px;
+}
+.flip-card-back{
+    color: white;
+}
+.flip-card-front:hover{
+  background-color: white;
+  color: black;
+}
+#boxUnique1{
+  border-radius: 50px 10px 100px 10px;
+  transition: .3s ease-in;
+}
+#boxUnique2{
+  border-radius: 30px 10px 50px 10px;
+  transition: .3s ease-in;
+}
+#boxUnique3{
+  border-radius: 10px 50px 80px 45px;
+  transition: .3s ease-in;
+}
+#boxUnique1:hover{
+  border-radius: 10px 10px 10px 10px;
+}
+#boxUnique2:hover{
+  border-radius: 10px 10px 10px 10px;
+}
+#boxUnique3:hover{
+  border-radius: 10px 10px 10px 10px;
+}
+.title{
+    font-size: x-large;
+}
+
+/* TABLETA */
+
+/* MOVIL */
+
+@media screen and (max-width: 768px) {
+    .plastaNegra{
+        display: flex;
+        flex-direction: column;
+        padding: 35px;
+    }
+    .flip-card{
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+    .flip-card-front{
+        width: 35vh;
+        height: 30vh;
+    }
+    .title{
+        font-size:large;
+    }
+}
+@media screen and (max-width: 458px) {
+    .flip-card-front p{
+        padding-left: 45px;
+        padding-right: 45px;
+        margin: 5px;
+        margin-top: 15px;
+        font-size: small;
+    }
+}
