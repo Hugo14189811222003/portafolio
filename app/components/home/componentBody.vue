@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import '@/assets/css/StyleBody.css'
 import logoHugo from '@/assets/img/svg/Vector.svg'
 import ilustracionFlotacion from '@/assets/img/svg/ilustraciónFlotandoPantalla.svg'
 const tamañoDeAnchoLogoHZ = 70;
@@ -32,3 +31,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+@import '@/assets/css/StyleBody.css';
+</style>

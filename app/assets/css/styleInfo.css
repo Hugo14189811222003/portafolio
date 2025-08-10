@@ -5,15 +5,39 @@
   gap: 10px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  height: auto;
 }
 .flip-card{
-  gap: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 155px;
+  padding-bottom: 155px;
+  transition: .5s;
+  transform-style: preserve-3d;
+}
+.flip-card.flipped {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  backface-visibility: hidden;
+}
+.flip-card-back {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  transform: rotateY(180deg);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: medium solid rgb(0, 0, 0);
+  width: 60vh;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 .flip-card-front{
   cursor: pointer;
@@ -22,7 +46,7 @@
   align-items: center;
   color: white;
   border: medium solid white;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   transition: .3s ease-in;
   width: 60vh;
   height: 30vh;
@@ -36,22 +60,18 @@
     margin: 5px;
     margin-top: 15px;
 }
-.flip-card-back{
-    color: white;
-}
 .flip-card-front:hover{
-  background-color: white;
-  color: black;
+  box-shadow: 0 5px 10px rgb(22, 22, 22);
 }
-#boxUnique1{
+.boxUnique1{
   border-radius: 50px 10px 100px 10px;
   transition: .3s ease-in;
 }
-#boxUnique2{
+.boxUnique2{
   border-radius: 30px 10px 50px 10px;
   transition: .3s ease-in;
 }
-#boxUnique3{
+.boxUnique3{
   border-radius: 10px 50px 80px 45px;
   transition: .3s ease-in;
 }
@@ -97,5 +117,38 @@
         margin: 5px;
         margin-top: 15px;
         font-size: small;
+    }
+    .flip-card {
+      margin-top: 290px;
+    }
+    .plastaNegra {
+      height: 130vh;
+    }
+    .flip-card-front, .flip-card-back {
+      width: 30vh;
+      padding: 10px;
+    }
+}
+@media screen and (max-width: 380px) {
+    .flip-card {
+      margin-top: 240px;
+    }
+    .plastaNegra {
+      height: 140vh;
+    }
+    .flip-card-front, .flip-card-back {
+      width: 45vh;
+    }
+}
+@media screen and (max-width: 360px) {
+    .flip-card {
+      margin-top: 240px;
+    }
+    .plastaNegra {
+      height: 140vh;
+    }
+    .flip-card-front, .flip-card-back {
+      width: 30vh;
+      font-size:x-small;
     }
 }
