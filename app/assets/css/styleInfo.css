@@ -6,6 +6,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   height: auto;
+  perspective: 1000px;
 }
 .flip-card{
   display: flex;

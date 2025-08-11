@@ -8,9 +8,9 @@
 
 <script>
 import '~/assets/css/global.css'
-import componentBody from './components/home/componentBody.vue'
-import ComponentInfo from './components/home/componentInfo.vue'
-import ComponentQuality from './components/home/componentQuality.vue'
+import componentBody from '../app/components/home/componentBody.vue'
+import ComponentInfo from '../app/components/home/componentInfo.vue'
+import ComponentQuality from '../app/components/home/componentQuality.vue'
 export default {
   components: { componentBody, ComponentInfo, ComponentQuality },
   data() {
