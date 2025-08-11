@@ -1,6 +1,5 @@
 <template>
-  <div class="heig">
-    <div class="content-center">
+  <div class="content-center">
     <section class="infoContent">
       <img :src="logoHugo" alt="Logo" :width="tamañoDeAnchoLogoHZ"/>
       <h1 id="title">¡Hola!, mi nombre es Hugo</h1>
@@ -11,7 +10,6 @@
       </div>
       <img :src="ilustracionFlotacion" alt="ilustración1" :width="tamañoDeIlustracion1" class="ilustracionFlotando"/>
     </section>
-  </div>
   </div>
 </template>
 
