@@ -69,7 +69,7 @@
   .flip-card-back{
     font-size: small;
   }
-  ..flip-card-front {
+  .flip-card-front {
     font-size: medium;
   }
   .flip-card-inner {
