@@ -1,10 +1,8 @@
 .ability-container{
-    background-color: aqua;
     width: 100%;
     height: auto;
 }
 .title-content {
-    background-color: blueviolet;
     margin: 15px;
     padding: 15px;
     box-shadow: 0px 8px 5px rgba(0, 0, 0, 0.384);
@@ -25,4 +23,50 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+.lenguajeOfProgramacion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.infoContent {
+    background-color: white;
+    box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.384);
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    overflow: hidden;
+}
+.infoContent img{
+    width: 28%;
+    height: auto;
+}
+.gap-lenguaje{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.infoText{
+    padding: 15px;
+}
+
+@media screen and (max-width: 768px) {
+    .infoContent {
+        flex-direction: column;
+    }
+    .infoContent img{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .infoContent {
+        flex-direction: column;
+    }
+    .infoContent img{
+        width: 100%;
+        height: auto;
+    }
 }

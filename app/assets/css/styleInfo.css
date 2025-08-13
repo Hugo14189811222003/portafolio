@@ -117,7 +117,7 @@
         padding-right: 45px;
         margin: 5px;
         margin-top: 15px;
-        font-size: small;
+        font-size: large;
     }
     .flip-card {
       margin-top: 290px;
@@ -128,6 +128,7 @@
     .flip-card-front, .flip-card-back {
       width: 30vh;
       padding: 10px;
+      font-size: large;
     }
 }
 @media screen and (max-width: 380px) {
@@ -139,17 +140,19 @@
     }
     .flip-card-front, .flip-card-back {
       width: 45vh;
+      font-size: large;
     }
 }
 @media screen and (max-width: 360px) {
     .flip-card {
-      margin-top: 240px;
+      margin-top: 255px;
     }
     .plastaNegra {
       height: 140vh;
     }
     .flip-card-front, .flip-card-back {
       width: 30vh;
-      font-size:x-small;
+      font-size: large;
+      padding: 20px;
     }
 }

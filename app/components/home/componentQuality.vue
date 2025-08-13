@@ -8,20 +8,14 @@
                 <p>Estoy comprometido con la mejora continua y la excelencia en todo lo que hago. 
                 Durante mi trayectoria, he aprendido a adaptarme a diferentes situaciones y a trabajar en equipo para lograr objetivos comunes.
                 </p>
-                <p>Mis habilidades propias dominadas son:
-                </p>
-                <ul>
-                    <li>Trabajo en equipo</li>
-                    <li>Comunicación efectiva</li>
-                    <li>Resolución de problemas</li>
-                    <li>Adaptabilidad</li>
-                    <li>Negociaciones</li>
-                </ul>
             </div>
             <div class="line-content"></div>
             <div class="ability-list">
-                <div class="Lenguajes de programación">
-                    <h1>Lenguajes de programación</h1>
+                <div class="lenguajeOfProgramacion">
+                    <h1>Lenguajes de programación y SQL</h1>
+                    <lenguaje-od-programation />
+                    <h1>Herramientas de diseño</h1>
+                    <herramienta-de-diseño />
                 </div>
             </div>
         </div>
@@ -29,10 +23,14 @@
 </template>
 
 <script>
+import nodejsImg from '@/assets/img/png/nodejs.png';
+import herramientaDeDiseño from './LenguajesDominados/herramientaDeDiseño.vue';
+import lenguajeOdProgramation from './LenguajesDominados/lenguajeOdProgramation.vue';
 export default {
+    components: {lenguajeOdProgramation, herramientaDeDiseño},
     data() {
         return {
-
+            nodejsImg
         }
     }
 }
