@@ -1,30 +1,33 @@
 <template>
-  <div class="content-center">
+  <div class="backgroundBody">
     <section class="infoContent">
-      <img :src="logoHugo" alt="Logo" :width="tamañoDeAnchoLogoHZ"/>
-      <h1 id="title">¡Hola!, mi nombre es Hugo</h1>
-      <h2 id="subtitle">Desarrollador/Diseñador</h2>
-      <div class="button-gap">
-        <button class="StyleOfButton" id="buttomBack">Empezar</button>
-        <button class="StyleOfButton" id="buttomOuline">Sobre mí</button>
+      <div class="flex-text">
+        <div class="tituloPrincipal">
+          <p id="title">Desarrollador</p>
+          <p class="textGradient">Full Stack</p>
+        </div>
       </div>
-      <img :src="ilustracionFlotacion" alt="ilustración1" :width="tamañoDeIlustracion1" class="ilustracionFlotando"/>
+      <p class="description">
+        Transformando ideas en experiencias digitales excepcionales con <br/> código limpio y marcas fuertes
+      </p>
+      <div class="btn">
+        <button class="verProyecto"><span>Ver proyectos</span></button>
+        <button class="contacto"><span>Contactar</span></button>
+      </div>
     </section>
   </div>
 </template>
 
 <script>
-import logoHugo from '@/assets/img/svg/Vector.svg'
-import ilustracionFlotacion from '@/assets/img/svg/ilustraciónFlotandoPantalla.svg'
-const tamañoDeAnchoLogoHZ = 70;
-const tamañoDeIlustracion1 = 300;
 export default {
   data() {
     return {
-      logoHugo,
-      ilustracionFlotacion,
-      tamañoDeAnchoLogoHZ,
-      tamañoDeIlustracion1
+    }
+  },
+  methods: {
+    goHomeCompleted () {
+      console.log('ir a otra pagina');
+      this.$router.push({ name: 'homeCompleted'})
     }
   }
 }

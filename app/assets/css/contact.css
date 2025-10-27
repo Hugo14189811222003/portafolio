@@ -1,0 +1,74 @@
+.contentGradient {
+    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    color: white;
+    text-align: center;
+    padding: 60px 10px;
+}
+
+.contentGradient h1 {
+    font-size: 40px;
+}
+.contentGradient h2 {
+    font-size: 24px;
+}
+.contentGradient button{
+    background-color: white;
+    padding: 15px 50px;
+    color: black;
+    cursor: pointer;
+    font-size: medium;
+    border-radius: 10px;
+    border: transparent;
+    font-weight: bold;
+    position:relative;
+    overflow: hidden;
+    transition: color 0.2s ease-in;
+}
+.contentGradient button::before {
+    position: absolute;
+    inset: 0;
+    content: '';
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+    background: linear-gradient(90deg, rgb(117, 4, 115), #29005e);
+}
+.contentGradient button > span {
+    z-index:1;
+    position: relative;
+}
+.contentGradient button:hover {
+  color: white;
+}
+.contentGradient button:hover::before {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+}
+
+/*table*/
+@media screen and (max-width: 912px) {
+    .contentGradient h1 {
+        font-size: 50px;
+    }
+    .contentGradient h2 {
+        font-size: 34px;
+    }
+    .contentGradient button {
+        padding: 25px 60px;
+        font-size: x-large;
+    }
+}
+
+/*movil*/
+@media screen and (max-width: 768px) {
+    .contentGradient h1 {
+        font-size: 0px;
+    }
+    .contentGradient h2 {
+        font-size: 24px;
+    }
+    .contentGradient button {
+        padding: 15px 50px;
+        font-size: large;
+    }
+}
