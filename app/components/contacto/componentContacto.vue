@@ -46,7 +46,7 @@ export default {
         return {
             contact: [
                 { id: 1, icon: '📞', type: 'Teléfono', value: '999 415 5132' },
-                { id: 2, icon: '📧', type: 'Correo electrónico', value: 'hugocarcos@gmail.com' },
+                { id: 2, icon: '📧', type: 'Correo electrónico', value: 'hugo.arcos141898@gmail.com' },
                 { id: 3, icon: '📍', type: 'Ubicación', value: 'Mérida, Yucatán, México' }
             ]
         }
