@@ -1,10 +1,10 @@
 <template>
     <div class="header-content">
         <div class="logoDev">
-            <a href="#inicio"><img :src="logoHugo" alt="logoHugo" :width="40"/></a>
+            <nuxt-link to="/" @click="itemHeaderReset"><img :src="logoHugo" alt="logoHugo" :width="40"/></nuxt-link>
         </div>
         <!--Boton hamburguesa (movil)-->
-        <button class="menu-toggle" @click="toggleMenu">
+        <button class="menu-toggle" :class="{ open: menuAbierto }" @click="toggleMenu">
             <span :class="{ open: menuAbierto }"></span>
             <span :class="{ open: menuAbierto }"></span>
             <span :class="{ open: menuAbierto }"></span>
@@ -18,7 +18,7 @@
                     :class="{ active: activo === item.id }"
                     @click="seleccionar(item.id)"
                     >
-                        <a :href="item.href">{{ item.text }}</a>
+                        <nuxt-link :to="item.id">{{ item.text }}</nuxt-link>
                     </li>
                 </ul>
             </nav>
@@ -32,14 +32,14 @@ export default {
   data() {
     return {
         logoHugo,
-        activo: 'inicio',
+        activo: '/',
         menuAbierto: false,
         menu: [
-            {id: 'inicio', href: '#inicio', text: 'Inicio'},
-            {id: 'sobre-mi', href: '#sobre-mi', text: 'Sobre Mí'},
-            {id: 'proyectos', href: '#proyectos', text: 'Proyectos'},
-            {id: 'habilidades', href: '#habilidades', text: 'Habilidades'},
-            {id: 'contactos', href: '#contactos', text: 'Contactos'}
+            {id: '/', text: 'Inicio'},
+            {id: '/sobreMi', text: 'Sobre Mí'},
+            {id: '/proyect', text: 'Proyectos'},
+            {id: '/habilidades', text: 'Habilidades'},
+            {id: '/contactos', text: 'Contactos'}
         ]
     }
   },
@@ -49,6 +49,10 @@ export default {
     },
     seleccionar (id) {
         this.activo = id;
+        this.menuAbierto = false;
+    },
+    itemHeaderReset() {
+        this.activo = '/';
         this.menuAbierto = false;
     }
   }

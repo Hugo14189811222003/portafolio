@@ -1,0 +1,79 @@
+.background{
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+}
+/*sobre mi*/
+.content{
+    width: 50%;
+    padding: 15px;
+}
+.sobremi h1{
+    font-weight: bold;
+    font-size: xx-large;
+}
+.sobremi h2{
+    font-size: large;
+    color: rgb(38, 38, 38);
+}
+.sobremi p{
+    color: rgb(75, 75, 75);
+}
+
+/*experiencia personal*/
+.contentInfoExperience{
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 3px 4px 1px rgb(184, 184, 184);
+    margin-bottom: 25px;
+}
+.experienciaPersonal h1{
+    font-weight: bold;
+    font-size: xx-large;
+}
+.experienciaPersonal .contentInfoExperience h1{
+    line-height: 1;
+    font-size: large;
+}
+.experienciaPersonal .contentInfoExperience h2{
+    color: rgb(0, 110, 255);
+    font-size: small;
+}
+.experienciaPersonal .contentInfoExperience h3{
+    line-height: 1;
+    font-size: large;
+    color: rgb(38, 38, 38);
+}
+.experienciaPersonal .contentInfoExperience p{
+    color: rgb(75, 75, 75);
+}
+
+/*educacion*/
+.contentInfoEducation{
+    background: white;
+    padding: 25px;
+    border-radius: 25px;
+    box-shadow: 0 3px 4px 1px rgb(184, 184, 184);
+    margin-bottom: 25px;
+}
+.education h1{
+    font-weight: bold;
+    font-size: xx-large;
+}
+.education .contentInfoEducation h1{
+    line-height: 1;
+    font-size: large;
+}
+.education .contentInfoEducation h2{
+    color: rgb(0, 110, 255);
+    font-size: small;
+}
+.education .contentInfoEducation h3{
+    line-height: 1;
+    font-size: large;
+    color: rgb(38, 38, 38);
+}
+.education .contentInfoEducation p{
+    color: rgb(75, 75, 75);
+}

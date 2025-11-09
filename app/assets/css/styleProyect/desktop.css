@@ -1,0 +1,200 @@
+.background{
+    padding: 40px 80px;
+    background: #F5F5F5;
+}
+.itemsProyect{
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    padding: 25px;
+    gap: 20px;
+    max-height: 80vh;
+    overflow-y: auto;
+    border-radius: 20px;
+}
+.item{
+    box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.096);
+}
+.noProyects{
+    text-align: center;
+    padding: 30px;
+}
+h1{
+    font-weight: bold;
+    font-size: xx-large;
+    line-height: 1;
+    letter-spacing: 1.5px;
+}
+h2{
+    font-size: large;
+    color: rgb(28, 28, 28);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+/*select*/
+.select{
+    letter-spacing: 1.5px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+.itemSelect{
+    overflow: hidden;
+    position: relative;
+    color: black;
+    border: 1.5px solid black;
+    font-weight: bold;
+    padding: 15px;
+    cursor: pointer;
+}
+/*select 1*/
+.itemSelect:first-child {
+    color: rgb(0, 0, 0);
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: all .3s ease;
+}
+.itemSelect:first-child.active{
+    transition: all .3s ease;
+    color: white;
+    border: 1.5px solid rgb(255, 255, 255);
+}
+.itemSelect:first-child::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity .3s ease;
+    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    color: white;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border: none;
+}
+.itemSelect:first-child > span{
+    position: relative;
+}
+.itemSelect:first-child.active::before {
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+/*select 2*/
+.itemSelect:last-child {
+    color: black;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+}
+.itemSelect:last-child.active {
+    color: white;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    border: 1.5px solid white;
+    transition: all .3s ease;
+}
+.itemSelect:last-child::before{
+    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    content: '';
+    inset: 0;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity .4s ease;
+    position: absolute;
+}
+.itemSelect:last-child > span {
+    position: relative;
+}
+.itemSelect:last-child.active::before{
+    opacity: 1;
+    transition: opacity .3s ease;
+}
+/*transition de  brand y web con select*/
+.slider-enter-active, .slider-leave-active {
+    transition: all 0.5s ease;
+}
+.slider-enter-from {
+    opacity: 0;
+    transform: translateX(250px);
+}
+.slider-enter-to {
+    opacity: 1;
+    transform: translateX(0);
+}
+.slider-leave-from{
+    opacity: 1;
+    transform: translateX(0);
+}
+.slider-leave-to{
+    opacity: 0;
+    transform: translateX(-250px);
+}
+/*item Web*/
+.itemsProyect .item{
+    overflow: hidden;
+    width: 400px;
+    border-radius: 15px;
+}
+.itemsProyect .item img{
+    width: 400px;
+}
+.lenguage ul {
+    padding-left: 0;
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+.lenguage ul li {
+    background-color: rgb(204, 204, 204);
+    padding: 2px;
+    padding-left: 15px;
+    padding-right: 15px;
+    text-align: center;
+    color: black;
+    border-radius: 50px;
+}
+.paddingContent{
+    padding: 15px;
+}
+.linkButton{
+    display: flex;
+    gap: 15px;
+}
+/* Demo */
+.demoStyle {
+  background-color: #3C83F6;
+  color: white;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 27%;
+  transition: all 0.3s ease;
+}
+
+/* GitHub */
+.githubStyle {
+  gap: 10px;
+  color: black;
+  font-weight: 700;
+  background-color: white;
+  border: 1.5px solid black;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 27%;
+  transition: all 0.3s ease;
+}
+.linkButton button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}

@@ -31,10 +31,11 @@
 .itemLinks ul li{
     margin-top: 15px;
 }
-.itemLinks ul li a{
+.itemLinks ul li{
     letter-spacing: 2px;
-    text-decoration: none;
-    color: rgb(86, 86, 86);
+}
+.itemLinks ul a li{
+    color: black;
 }
 /*estilos de contacto item enlace*/
 .itemImgItem {
@@ -146,6 +147,7 @@
     }
     .itemLinks ul{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         gap: 20px;
         margin: 0;

@@ -8,10 +8,11 @@
             <div class="itemLinks">
                 <h1>Enlaces rapidos</h1>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#sobre-mi">Sobre mí</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <nuxt-link to="/"><li>Inicio</li></nuxt-link>
+                    <nuxt-link to="/sobreMi"><li>Sobre mí</li></nuxt-link>
+                    <nuxt-link to="/proyect"><li>Proyectos</li></nuxt-link>
+                    <nuxt-link to="/habilidades"><li>Habilidades</li></nuxt-link>
+                    <nuxt-link to="/contacto"><li>Contacto</li></nuxt-link>
                 </ul>
             </div>
             <div class="itemImg">

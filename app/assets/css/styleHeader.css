@@ -9,7 +9,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    box-shadow: 10px 0px 5px 1px rgb(255, 0, 0);
     border: solid rgba(0, 0, 0, 0.173) 2px;
 }
 .logoDev{
@@ -114,6 +113,11 @@
 
 .menu-toggle span.open:nth-child(3) {
     transform: translateY(-6.5px) rotate(-45deg);
+}
+.menu-toggle.open{
+    position: fixed;
+    top: 10px;
+    left: 343px;
 }
 
 /*aside - menu lateral*/

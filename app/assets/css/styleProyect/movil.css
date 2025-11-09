@@ -1,0 +1,78 @@
+@media screen and (max-width: 769px) {
+    .background{
+        text-align: center;
+        padding: 40px 25px;
+    }
+    .paddingContent{
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px;
+    }
+    h1{
+        font-size: xx-large;
+        font-weight: bold;
+    }
+    h2{
+        font-size: medium;
+    }
+    .select{
+        display: flex;
+        flex-direction: column;
+    }
+    .itemSelect:last-child {
+        text-align: center;
+        border-radius: 50px;
+    }
+    .itemSelect:first-child {
+        text-align: center;
+        border-radius: 50px;
+        margin-bottom: 10px;
+    }
+    .itemsProyect{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, auto);
+        padding: 25px;
+        gap: 20px;
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+    /*web item*/
+    .paddingContent{
+        padding: 7px;
+    }
+    .itemsProyect .item{
+        overflow: hidden;
+        width: 100%;
+        border-radius: 15px;
+    }
+    .itemsProyect .item img{
+        width: 100%;
+    }
+    /*botones de git y demo*/
+    .linkButton {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .demoStyle{
+        width: 35%;
+    }
+    .githubStyle{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 35%;
+    }
+    /*lenguage*/
+    .lenguage ul li {
+        background-color: rgb(204, 204, 204);
+        padding: 2px;
+        width: 27%;
+        text-align: center;
+        color: black;
+        border-radius: 50px;
+    }
+}

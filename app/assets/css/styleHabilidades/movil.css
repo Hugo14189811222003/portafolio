@@ -1,0 +1,17 @@
+@media screen and (max-width: 769px) {
+    .content{
+        text-align: center;
+    }
+    .contentAbility{
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .background{
+        padding: 20px 30px;
+    }
+    .itemAbility{
+        width: 70%;
+    }
+    .contentAbility{
+        gap: 15px;
+    }
+}
