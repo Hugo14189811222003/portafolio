@@ -116,8 +116,8 @@
 }
 .menu-toggle.open{
     position: fixed;
-    top: 10px;
-    left: 343px;
+    top: 1%;
+    left: 83%;
 }
 
 /*aside - menu lateral*/
@@ -131,4 +131,6 @@
         margin-right: 40px;
         margin-top: 10px;
     }
+}
+@media screen and (max-width: 360px) {
 }

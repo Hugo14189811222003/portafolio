@@ -3,15 +3,17 @@
         text-align: center;
     }
     .contentAbility{
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, auto);
+        gap: 10px;
     }
     .background{
-        padding: 20px 30px;
+        padding: 20px 10px;
     }
     .itemAbility{
-        width: 70%;
-    }
-    .contentAbility{
-        gap: 15px;
+        width: 90%;
+        padding: 10px 10px 35px 10px;
+        margin: 0 auto 0 auto;
+        border-radius: 15px;
     }
 }
