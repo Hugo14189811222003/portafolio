@@ -1,0 +1,43 @@
+@media screen and (max-width: 769px) {
+    .background{
+        background: #F5F5F5;
+        display: flex;
+        flex-direction: column;
+        padding: 35px 30px;
+        justify-content: center;
+    }
+    .content{
+        flex-direction: column;
+    }
+    .complement{
+        width: 100%;
+    }
+    .form{
+        width: 100%;
+        padding: 0;
+    }
+    .buttonMensaje{
+        width: 60%;
+    }
+    h4{
+        margin: 15px 20px 15px 20px;
+    }
+    h3{
+        margin: 15px 20px 15px 20px;
+        font-size: x-large;
+        font-weight: bold;
+    }
+    input{
+        margin: 0 20 0 20;
+    }
+    .buttonMensaje{
+        margin-bottom: 20px;
+        margin-top: 20px;
+    }
+    textarea{
+        height: 80px;
+    }
+    .ContentAction{
+        margin-bottom: 1px;
+    }
+}

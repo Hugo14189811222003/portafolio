@@ -39,9 +39,17 @@ export default {
             {id: '/sobreMi', text: 'Sobre Mí'},
             {id: '/proyect', text: 'Proyectos'},
             {id: '/habilidades', text: 'Habilidades'},
-            {id: '/contactos', text: 'Contactos'}
+            {id: '/contacto', text: 'Contacto'}
         ]
     }
+  },
+  watch: {
+    $route(to) {
+        this.activo = to.path
+    }
+  },
+  mounted() {
+    this.activo = this.$route.path
   },
   methods: {
     toggleMenu ( ) {

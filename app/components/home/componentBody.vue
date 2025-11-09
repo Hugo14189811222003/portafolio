@@ -11,8 +11,8 @@
         Transformando ideas en experiencias digitales excepcionales con <br/> código limpio y marcas fuertes
       </p>
       <div class="btn">
-        <nuxt-link to="/sobreMi"><button class="verProyecto"><span>Ver proyectos</span></button></nuxt-link>
-        <button class="contacto"><span>Contactar</span></button>
+        <nuxt-link to="/proyect"><button class="verProyecto"><span>Ver proyectos</span></button></nuxt-link>
+        <nuxt-link to="/contacto"><button class="contacto"><span>Contactar</span></button></nuxt-link>
       </div>
     </section>
   </div>

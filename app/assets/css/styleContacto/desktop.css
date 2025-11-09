@@ -1,0 +1,173 @@
+.background{
+    background: #F5F5F5;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 150px;
+}
+h1{
+    font-weight: bold;
+    font-size: xx-large;
+    line-height: 1;
+    letter-spacing: 1px;
+    margin: 0;
+}
+h2{
+    font-size: large;
+    font-weight: normal;
+    color: rgb(50, 50, 50);
+    font-weight: 500;
+    letter-spacing: 1px;
+    margin-bottom: 40px;
+}
+h3{
+    font-size: large;
+    font-weight: bold;
+}
+h4{
+    font-weight: normal;
+    font-size: medium;
+}
+.content{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.complement{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    width: 50%;
+}
+/*Formulario*/
+.form{
+    letter-spacing: .5px;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    border-radius: 20px;
+    background-color: white;
+    width: 40%;
+}
+.inputsLabel{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px 20px 10px 20px;
+    border: 1px solid black;
+}
+label{
+    letter-spacing: 1px;
+    margin: 10px 20px 10px 20px;
+}
+textarea{
+    border-radius: 10px;
+    margin: 0 20px 0 20px;
+    padding: 15px;
+    resize: none;
+}
+.buttonMensaje{
+    text-align: center;
+    background-color: #3C83F6;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 30%;
+    border-radius: 10px;
+    margin: 15px auto 0 auto;
+}
+
+/*action*/
+.ContentAction{
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    background: linear-gradient(180deg, #FF00FB, #8A38F5);
+    border-radius: 20px;
+}
+.ContentAction span{
+    color: white;
+    font-weight: 500;
+    margin: 10px 0;
+    letter-spacing: 1.5px;
+}
+.ContentAction span:nth-child(1){
+    font-size: x-large;
+}
+.ContentAction span:nth-child(2){
+    font-size: medium;
+}
+.ContentAction button{
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    margin: 10px 0;
+    border: none;
+    padding: 13px;
+    border-radius: 8px;
+    text-align: center;
+    font-size: medium;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+}
+.ContentAction button:hover span{
+    color: white;
+    transition: all .5s ease;
+}
+.ContentAction button span{
+    color: rgb(0, 0, 0);
+    font-size: small;
+}
+.ContentAction button::before{
+    content: '';
+    inset: 0;
+    position: absolute;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity .5s ease;
+    cursor: pointer;
+    background: linear-gradient(180deg, #6b0069, #3d008c);
+}
+.ContentAction button:hover::before{
+    opacity: 1;
+    transition: opacity .5s ease;
+}
+.ContentAction button > span {
+    position: relative;
+    z-index: 1;
+}
+.itemContact{
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+}
+.itemContact {
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0 0 0;
+}
+.containerContact{
+    display: flex;
+    flex-direction: row;
+}
+.containerContact .icon{
+    background: linear-gradient(180deg, #FF00FB, #8A38F5);
+    padding: 10px;
+    border-radius: 8px;
+    margin: 0 15px 0 0;
+}
+.textInfo{
+    display: flex;
+    flex-direction: column;
+}
+.textInfo span:nth-child(1){
+    font-weight: bold;
+    font-size: larger;
+}
+.textInfo span:nth-child(2){
+    font-weight: normal;
+    font-size: medium;
+    color: rgb(49, 49, 49);
+}
