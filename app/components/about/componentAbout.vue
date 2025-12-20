@@ -38,7 +38,7 @@ export default {
                 {subtitle: 'Diseño de marcas', paragrath: 'Soy una persona apasionada en crear marcas fuertes y una identidad corporativa destacable, con la cual no solo es un logo, sino la forma como las personas podría percibirte(papelería corporativa, colores, voz, etc). '}
             ],
             personal_experience: [
-                {title: 'Middle Full Stack Developer', subtitle: 'Paramq', date: '2025 - Presente', paragrath: 'Trabajando en el desarrollo web en la área del Front-End y diseñador UI/UX con tecnología de Nuxt.js, Vue.js, Node.js y Ionic.'},
+                {title: 'Junior Full Stack Developer', subtitle: 'Paramq', date: '2025 - Presente', paragrath: 'Trabajando en el desarrollo web en la área del Front-End y diseñador UI/UX con tecnología de Nuxt.js, Vue.js, Node.js y Ionic.'},
                 {title: 'Senior en diseño grafico', subtitle: 'Lavza', date: '2024 al 2025', paragrath: 'Fuí encargado en la área creativa de diseño para camisas deportivas y de cualquier otro nicho, manejando directamente herramientas de diseño avanzado como CorelDRAW para la realizacion de los vectores imprimibles, Photoshop para los mockups avanzados. De igual forma maneje maquinaria pesada como plotters para impresión. '},
             ],
             education: [
