@@ -141,7 +141,8 @@ h2{
 .lenguage ul {
     padding-left: 0;
     list-style: none;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 10px;
 }
 .lenguage ul li {
@@ -159,6 +160,7 @@ h2{
 .linkButton{
     display: flex;
     gap: 15px;
+    margin-bottom: 15px;
 }
 /* Demo */
 .demoStyle {

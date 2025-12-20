@@ -28,6 +28,7 @@
 </template>
 
 <script>
+import webHugo from '@/assets/img/png/portafolioWeb.png'
 import gitHub from '@/assets/img/png/github.png'
 export default {
     data () {
@@ -36,109 +37,22 @@ export default {
             proyect: [
                 {
                     id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
+                    photo: webHugo,
+                    title: 'Portafolio Web',
+                    description: 'Portafolio web creado con Nuxt.js de Vue.js',
                     lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
+                        {id: 1, name: 'Nuxt.js'},
+                        {id: 2, name: 'Resend'},
+                        {id:4, name: 'postgreSQL'},
+                        {id:5, name: 'Render'},
+                        {id:6, name: 'Vercel'},
+                        {id:7, name: 'Cloudinary'}
                     ],
                     socialMedia: [
                         {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
                     ],
-                    webSite: 'https://www.shopify.com/'
+                    webSite: 'https://portafolio-hugodev.vercel.app/'
                 },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                },
-                {
-                    id: 0,
-                    photo: 'https://cdn.shortpixel.ai/client/q_glossy,ret_img,w_1000,h_687/https://www.lluviadigital.com/wp-content/uploads/2020/02/e-commerce-que-es-Lluvia-Digital.jpg',
-                    title: 'E-Commerce Plataform',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Vue'},
-                        {id: 2, name: 'Nodejs'},
-                        {id: 3, name: 'MySQL'},
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'GitHub', link: 'https://github.com/Hugo14189811222003'}
-                    ],
-                    webSite: 'https://www.shopify.com/'
-                }
             ]
         }
     },

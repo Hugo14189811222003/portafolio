@@ -49,48 +49,6 @@ export default {
                     ],
                     webSite: 'https://www.behance.net/gallery/223675809/Branding_Aquitoy'
                 },
-                {
-                    id: 0,
-                    photo: aquitoyImage,
-                    title: 'Aquitoy',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Photoshop'},
-                        {id: 2, name: 'Illustrator'}
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'Behance', link: 'https://www.behance.net/hugoarcoszuiga'}
-                    ],
-                    webSite: 'https://www.behance.net/gallery/223675809/Branding_Aquitoy'
-                },
-                {
-                    id: 0,
-                    photo: aquitoyImage,
-                    title: 'Aquitoy',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Photoshop'},
-                        {id: 2, name: 'Illustrator'}
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'Behance', link: 'https://www.behance.net/hugoarcoszuiga'}
-                    ],
-                    webSite: 'https://www.behance.net/gallery/223675809/Branding_Aquitoy'
-                },
-                {
-                    id: 0,
-                    photo: aquitoyImage,
-                    title: 'Aquitoy',
-                    description: 'Una selección de mis trabajos recientes y proyectos destacados',
-                    lenguaje: [
-                        {id: 1, name: 'Photoshop'},
-                        {id: 2, name: 'Illustrator'}
-                    ],
-                    socialMedia: [
-                        {id: 1, name: 'Behance', link: 'https://www.behance.net/hugoarcoszuiga'}
-                    ],
-                    webSite: 'https://www.behance.net/gallery/223675809/Branding_Aquitoy'
-                },
             ]
         }
     },

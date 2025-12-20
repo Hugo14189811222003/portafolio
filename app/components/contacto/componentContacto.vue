@@ -31,9 +31,9 @@
                 <div class="ContentAction">
                     <span>¿Listo para empezar?</span>
                     <span>Estoy disponible para proyectos freelance y colaboraciones a largo plazo.</span>
-                    <button>
+                    <!-- <button>
                         <span>Contactame</span>
-                    </button>
+                    </button> -->
                 </div>
             </div>
         </div>

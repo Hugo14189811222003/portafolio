@@ -39,39 +39,42 @@ export default {
                         name: 'Front-End',
                         technologies: [
                             { name: 'Vue.js', percent: 85 },
-                            { name: 'React.js', percent: 75 },
-                            { name: 'Tailwind CSS', percent: 90 },
-                            { name: 'HTML5/CSS', percent: 90 }
+                            { name: 'React.js', percent: 45 },
+                            { name: 'Tailwind CSS', percent: 70 },
+                            { name: 'HTML5/CSS', percent: 85 }
                         ]
                     },
                     {
                         name: 'Back-End',
                         technologies: [
-                            { name: 'Node.js', percent: 80 },
+                            { name: 'Node.js', percent: 75 },
                             { name: 'Express.js', percent: 75 },
-                            { name: 'APIs REST', percent: 90 }
+                            { name: 'APIs REST', percent: 80}
                         ]
                     },
                     {
                         name: 'Base de datos',
                         technologies: [
                             { name: 'MySQL', percent: 75 },
-                            { name: 'MongoDB', percent: 35 },
-                            { name: 'FireBase', percent: 36 }
+                            { name: 'FireBase', percent: 36 },
+                            { name: 'PostgreSQL', percent: 78 }
                         ]
                     },
                     {
                         name: 'Movil',
                         technologies: [
                             { name: 'Flutter', percent: 49 },
-                            { name: 'Ionic/Vue', percent: 35 },
-                            { name: 'Responsive Design', percent: 89 }
+                            { name: 'Ionic/Vue', percent: 60 }
                         ]
                     },
                     {
                         name: 'Herramientas',
                         technologies: [
-                            { name: 'Git/GitHub', percent: 65 },
+                            { name: 'Git/GitHub', percent: 50 },
+                            { name: 'Render', percent: 70 },
+                            { name: 'Vercel', percent: 62 },
+                            { name: 'Cloudinary', percent: 40 },
+                            { name: 'Resend', percent: 38 }
                         ]
                     },
                     {
@@ -80,7 +83,9 @@ export default {
                             { name: 'Figma', percent: 88 },
                             { name: 'UI/UX principios', percent: 92 },
                             { name: 'Responsive Design', percent: 80 },
-                            { name: 'Accesibilidad', percent: 85 }
+                            { name: 'CorelDRAW', percent: 88 },
+                            { name: 'Photoshop', percent: 85 },
+                            { name: 'Illustrator', percent: 45 },
                         ]
                     },
                 ]
