@@ -4,7 +4,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
+      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:3000',
       apiBase: process.env.API_RESEND || 'http://localhost:3000',
-    },
-  },
+    }
+  }
 })
