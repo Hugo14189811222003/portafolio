@@ -28,10 +28,10 @@
         <div class="contentContactInfo">
           <div class="itemContact" v-for="item in contact" :key="item.id">
             <div class="containerContact">
-              <span class="icon">{{ item.icon }}</span>
               <div class="textInfo">
-                <span class="type">{{ item.type }}</span>
-                <span class="value">{{ item.value }}</span>
+                <span class="type"><span class="icon">{{ iconCorreo }}</span>{{ item.email }}</span>
+                <span class="type"><span class="icon">{{ iconTelefono }}</span>{{ item.telefono }}</span>
+                <span class="type"><span class="icon">{{ iconUbicacion }}</span>{{ item.direccion }}</span>
               </div>
             </div>
           </div>
@@ -53,20 +53,25 @@
         <button @click="cerrarModal">Cerrar</button>
       </div>
     </div>
+    <div class="styleLoading" v-if="loadingGet">Cargando{{ puntos }}</div>
   </div>
 </template>
 
 <script>
+import { useContactoApi } from '@/composable/contacto/useContactoApi';
 export default {
   data() {
     return {
+      puntos: '',
+      interval: null,
+      loadingGet: false,
         loading: false,
       // Datos de contacto
       contact: [
-        { id: 1, icon: '📞', type: 'Teléfono', value: '999 415 3152' },
-        { id: 2, icon: '📧', type: 'Correo electrónico', value: 'hugo.arcos141898@gmail.com' },
-        { id: 3, icon: '📍', type: 'Ubicación', value: 'Mérida, Yucatán, México' }
       ],
+      iconTelefono: '📞',
+      iconCorreo: '📧',
+      iconUbicacion: '📍',
       // Campos del formulario
       name: '',
       email: '',
@@ -75,7 +80,37 @@ export default {
       modalVisible: false
     }
   },
+  async mounted() {
+    await this.getContacto();
+  },
   methods: {
+    async getContacto() {
+      try {
+        this.loadingGet = true;
+        this.interval = setInterval(() => {
+          this.puntos += '.'
+        }, 500)
+        const user = 1;
+        /* Obteniendo la informacion de contacto */
+        const response = await useContactoApi().getContacto();
+        console.log("datos obtenidos de contacto", response);
+        /* Obteniendo la informacion de contacto */
+        const userContacto = response.filter(item => item.id_usuario === user);
+        console.log("datos obtenidos de contacto de user", userContacto);
+        this.contact = userContacto.map((item) => {
+          return {
+            email: item.email,
+            telefono: item.telefono,
+            direccion: item.direccion
+          }
+        })
+      } catch (error) {
+        console.log('Error de servidor: ', error);
+      } finally {
+        this.loadingGet = false;
+        clearInterval(this.interval);
+      }
+    },
     async enviarMensaje() {
         this.loading = true;
       if (!this.name || !this.email || !this.message) {

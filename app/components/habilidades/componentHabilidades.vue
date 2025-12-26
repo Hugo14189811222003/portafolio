@@ -25,70 +25,64 @@
                     </div>
                 </div>
             </div>
+            <div class="styleLoading" v-if="isLoading">Cargando{{ puntos }}</div>
         </div>
     </div>
 </template>
 
 <script>
+import { useHabilidadesApi } from '@/composable/habilidades/useHabilidadesApi';
+import { useHabilidadItemApi } from '@/composable/habilidades/habilidadItems/useHabilidadItemApi';
 export default {
     data(){
         return {
+            puntos: '',
+            finallyInterval: null,
             skill: {
-                category: [
-                    {
-                        name: 'Front-End',
-                        technologies: [
-                            { name: 'Vue.js', percent: 85 },
-                            { name: 'React.js', percent: 45 },
-                            { name: 'Tailwind CSS', percent: 70 },
-                            { name: 'HTML5/CSS', percent: 85 }
-                        ]
-                    },
-                    {
-                        name: 'Back-End',
-                        technologies: [
-                            { name: 'Node.js', percent: 75 },
-                            { name: 'Express.js', percent: 75 },
-                            { name: 'APIs REST', percent: 80}
-                        ]
-                    },
-                    {
-                        name: 'Base de datos',
-                        technologies: [
-                            { name: 'MySQL', percent: 75 },
-                            { name: 'FireBase', percent: 36 },
-                            { name: 'PostgreSQL', percent: 78 }
-                        ]
-                    },
-                    {
-                        name: 'Movil',
-                        technologies: [
-                            { name: 'Flutter', percent: 49 },
-                            { name: 'Ionic/Vue', percent: 60 }
-                        ]
-                    },
-                    {
-                        name: 'Herramientas',
-                        technologies: [
-                            { name: 'Git/GitHub', percent: 50 },
-                            { name: 'Render', percent: 70 },
-                            { name: 'Vercel', percent: 62 },
-                            { name: 'Cloudinary', percent: 40 },
-                            { name: 'Resend', percent: 38 }
-                        ]
-                    },
-                    {
-                        name: 'Diseño',
-                        technologies: [
-                            { name: 'Figma', percent: 88 },
-                            { name: 'UI/UX principios', percent: 92 },
-                            { name: 'Responsive Design', percent: 80 },
-                            { name: 'CorelDRAW', percent: 88 },
-                            { name: 'Photoshop', percent: 85 },
-                            { name: 'Illustrator', percent: 45 },
-                        ]
-                    },
-                ]
+                category: []
+            },
+            isLoading: false
+        }
+    },
+    async mounted() {
+        await this.getSkill();
+    },
+    methods: {
+        async getSkill() {
+            try {
+                const user = 1;
+                this.isLoading = true
+                const interval = setInterval(() => {
+                    this.puntos += '.'
+                }, 500)
+                this.finallyInterval = interval;
+                /* Obteniendo la categoria de habilidades */ 
+                const response = await useHabilidadesApi().getHabilidades();
+                console.log("datos obtenidos de habilidades", response);
+                /* habilidades de usuario */
+                const userHabilidades = response.filter(item => item.id_usuario === user);
+                console.log("datos obtenidos de habilidades de usuario", userHabilidades);
+                /* Obteniendo todos los items de habilidad */
+                const reponseItems = await useHabilidadItemApi().getHabilidadesItem();
+                console.log("datos obtenidos de items de habilidad", reponseItems);
+                /* Obteniendo los items de la habilidad especificas */
+                this.skill.category = userHabilidades.map((habilidad) => {
+                    return {
+                        name: habilidad.titulo,
+                        technologies: reponseItems.filter((item) => item.id_habilidad === habilidad.id).map((item) => {
+                            return {
+                                name: item.titulo,
+                                percent: item.porcentaje
+                            }
+                        })
+                    }
+                })
+                console.log("datos obtenidos de habilidades", this.skill);
+            } catch (error){
+                console.log('Problema al tratar de obtener el servidor', error);
+            } finally {
+                this.isLoading = false;
+                clearInterval(this.finallyInterval);
             }
         }
     }
