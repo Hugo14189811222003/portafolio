@@ -88,7 +88,7 @@ export default {
       try {
         this.loadingGet = true;
         this.interval = setInterval(() => {
-          this.puntos += '.'
+          this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
         }, 500)
         const user = 1;
         /* Obteniendo la informacion de contacto */

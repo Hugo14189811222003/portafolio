@@ -53,7 +53,7 @@ export default {
                 const user = 1;
                 this.isLoading = true
                 const interval = setInterval(() => {
-                    this.puntos += '.'
+                    this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
                 }, 500)
                 this.finallyInterval = interval;
                 /* Obteniendo la categoria de habilidades */ 
