@@ -50,7 +50,7 @@ export default {
     methods: {
         async getSkill() {
             try {
-                const user = 1;
+                const user = 2;
                 this.isLoading = true
                 const interval = setInterval(() => {
                     this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";

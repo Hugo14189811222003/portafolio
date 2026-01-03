@@ -90,7 +90,7 @@ export default {
         this.interval = setInterval(() => {
           this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
         }, 500)
-        const user = 1;
+        const user = 2;
         /* Obteniendo la informacion de contacto */
         const response = await useContactoApi().getContacto();
         console.log("datos obtenidos de contacto", response);

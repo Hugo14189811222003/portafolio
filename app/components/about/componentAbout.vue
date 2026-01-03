@@ -42,7 +42,7 @@ export default {
     },
     methods: {
         async getSobreMi () {
-            const user = 1;
+            const user = 2;
             this.loading = true;
             this.intervalpunto = setInterval(() => {
                 this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
