@@ -69,7 +69,7 @@ export default {
             }, 300);
 
             try {
-                const user = 1;
+                const user = 2;
                 const proyectos = await useProyectoApi().getProyecto();
                 const webs = await useWebApi().getWeb();
                 const marcas = await useMarcaApi().getMarca();
