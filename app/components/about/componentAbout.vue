@@ -50,33 +50,21 @@ export default {
             try {
                 // sobre mi
                 const getSobreMi = await useSobreMiApi().getSobreMi();
-                const sobreMiUser = getSobreMi.find((item) => Number(item.id_usuario) === Number(user));
+                const sobreMiUser = getSobreMi.filter((item) => Number(item.id_usuario) === Number(user));
                 console.log("getSobreMi", sobreMiUser);
-                this.about = [
-                    {
-                        ...sobreMiUser
-                    }
-                ]
+                this.about = sobreMiUser;
 
                 // experiencia
                 const getExperiencia = await useExperienciaApi().getExperiencia();
-                const experienciaUser = getExperiencia.find((item) => Number(item.id_usuario) === Number(user));
+                const experienciaUser = getExperiencia.filter((item) => Number(item.id_usuario) === Number(user));
                 console.log('Get experiencia de usuario: ', experienciaUser);
-                this.personal_experience = [
-                    {
-                        ...experienciaUser
-                    }
-                ]
+                this.personal_experience = experienciaUser;
 
                 // educacion
                 const getEducacion = await useEducacionApi().getEducacion();
-                const educacionUser = getEducacion.find((item) => Number(item.id_usuario) === Number(user));
+                const educacionUser = getEducacion.filter((item) => Number(item.id_usuario) === Number(user));
                 console.log('Get educacion de usuario: ', educacionUser);
-                this.education = [
-                    {
-                        ...educacionUser
-                    }
-                ]
+                this.education = educacionUser;
             } catch (error) {
                 console.log('hubo un probema con el servicio: ', error.message);
             } finally {
