@@ -1,72 +1,97 @@
-.background{
-    padding: 20px 50px;
+.background {
+    padding: 40px 50px;
     background: #F5F5F5;
 }
-.itemsProyect{
+
+h1 {
+    font-weight: bold;
+    font-size: x-large;
+    line-height: 1;
+    letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
+}
+
+/* Subtítulo debajo del h1 */
+.background > h2 {
+    font-size: large;
+    color: rgb(28, 28, 28);
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    margin-bottom: 0;
+}
+
+/* Título dentro de tarjeta de proyecto */
+.paddingContent h1 {
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: 8px 0 6px;
+    line-height: 1.3;
+}
+
+/* ── Grid de proyectos ── */
+.itemsProyect {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(3, auto);
     padding: 15px;
     gap: 20px;
     border-radius: 20px;
+    margin: 0;
 }
-img {
+
+.itemsProyect .limitImg img {
     display: block;
     width: 100%;
     height: auto;
     object-fit: cover;
 }
-.limitImg {  
+
+.limitImg {
     max-height: 200px;
     overflow: hidden;
 }
-.item{
+
+.item {
     box-shadow: 2px 3px 4px 0px rgba(0, 0, 0, 0.096);
 }
-.noProyects{
+
+.noProyects {
     text-align: center;
     padding: 30px;
-}
-h1{
-    font-weight: bold;
-    font-size: x-large;
-    line-height: 1;
-    letter-spacing: 1.5px;
-}
-h2{
+    color: rgb(100, 100, 100);
     font-size: large;
-    color: rgb(28, 28, 28);
-    font-weight: 500;
-    letter-spacing: 1.5px;
 }
-/*select*/
-.select{
+
+/* ── Selector de categorías ── */
+.select {
     letter-spacing: 1.5px;
     display: flex;
     justify-content: center;
     padding: 20px;
 }
-.itemSelect{
+
+.itemSelect {
     overflow: hidden;
     position: relative;
     color: black;
     border: 1.5px solid black;
     font-weight: bold;
-    padding: 15px;
+    padding: 15px 25px;
     cursor: pointer;
+    user-select: none;
 }
-/*select 1*/
+
 .itemSelect:first-child {
-    color: rgb(0, 0, 0);
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    transition: all .3s ease;
+    transition: color .3s ease, border-color .3s ease;
 }
-.itemSelect:first-child.active{
-    transition: all .3s ease;
+
+.itemSelect:first-child.active {
     color: white;
-    border: 1.5px solid rgb(255, 255, 255);
+    border-color: white;
 }
+
 .itemSelect:first-child::before {
     content: '';
     position: absolute;
@@ -75,49 +100,54 @@ h2{
     opacity: 0;
     transition: opacity .3s ease;
     background: linear-gradient(90deg, #FF00FB, #8A38F5);
-    color: white;
     border-top-left-radius: 50px;
     border-bottom-left-radius: 50px;
-    border: none;
 }
-.itemSelect:first-child > span{
+
+.itemSelect:first-child > span {
     position: relative;
+    z-index: 1;
 }
+
 .itemSelect:first-child.active::before {
     opacity: 1;
-    transition: opacity .3s ease;
 }
-/*select 2*/
+
 .itemSelect:last-child {
-    color: black;
     border-top-right-radius: 50px;
     border-bottom-right-radius: 50px;
+    transition: color .3s ease, border-color .3s ease;
 }
+
 .itemSelect:last-child.active {
     color: white;
-    border-top-right-radius: 50px;
-    border-bottom-right-radius: 50px;
-    border: 1.5px solid white;
-    transition: all .3s ease;
+    border-color: white;
 }
-.itemSelect:last-child::before{
-    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+
+.itemSelect:last-child::before {
     content: '';
+    position: absolute;
     inset: 0;
     z-index: 0;
     opacity: 0;
     transition: opacity .4s ease;
-    position: absolute;
+    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
 }
+
 .itemSelect:last-child > span {
     position: relative;
+    z-index: 1;
 }
-.itemSelect:last-child.active::before{
+
+.itemSelect:last-child.active::before {
     opacity: 1;
-    transition: opacity .3s ease;
 }
-/*transition de  brand y web con select*/
-.slider-enter-active, .slider-leave-active {
+
+/* ── Transición slider ── */
+.slider-enter-active,
+.slider-leave-active {
     transition: all 0.5s ease;
 }
 .slider-enter-from {
@@ -128,94 +158,128 @@ h2{
     opacity: 1;
     transform: translateX(0);
 }
-.slider-leave-from{
+.slider-leave-from {
     opacity: 1;
     transform: translateX(0);
 }
-.slider-leave-to{
+.slider-leave-to {
     opacity: 0;
     transform: translateX(-250px);
 }
-/*item Web*/
-.itemsProyect .item{
+
+/* ── Tarjeta de proyecto ── */
+.itemsProyect .item {
     overflow: hidden;
-    width: 400px;
+    width: 100%;
     border-radius: 15px;
+    background: white;
 }
-.itemsProyect .item img{
-    width: 400px;
+
+.itemsProyect .item img {
+    width: 100%;
 }
+
+/* ── Tags de tecnología ── */
 .lenguage ul {
-    padding-left: 0;
+    padding: 0;
+    margin: 8px 0 12px;
     list-style: none;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    display: flex;
+    flex-wrap: wrap;      /* wrap en lugar de grid fijo — más flexible */
+    gap: 8px;
 }
+
 .lenguage ul li {
-    background-color: rgb(204, 204, 204);
-    padding: 2px;
-    padding-left: 15px;
-    padding-right: 15px;
+    background-color: rgb(224, 224, 224);
+    padding: 3px 12px;
     text-align: center;
     color: black;
     border-radius: 50px;
+    font-size: 13px;
+    white-space: nowrap;
 }
-.paddingContent{
+
+.paddingContent {
     padding: 15px;
 }
-.linkButton{
+
+.linkButton {
     display: flex;
-    gap: 15px;
+    gap: 12px;
     margin-bottom: 15px;
-}
-/* Demo */
-.demoStyle {
-  background-color: #3C83F6;
-  color: white;
-  font-weight: 700;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-  border-radius: 10px;
-  width: 27%;
-  transition: all 0.3s ease;
+    margin-top: 10px;
 }
 
-/* GitHub */
+/* ── Botones ── */
 .githubStyle {
-  gap: 10px;
-  color: black;
-  font-weight: 700;
-  background-color: white;
-  border: 1.5px solid black;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
-  border-radius: 10px;
-  width: 27%;
-  transition: all 0.3s ease;
+    color: black;
+    font-weight: 700;
+    background-color: white;
+    border: 1.5px solid black;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;          /* 👈 no se comprime */
+    transition: background-color 0.2s ease;
 }
-.linkButton button img {
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+.githubStyle img {
+    margin-bottom: 10px;
 }
 
+.githubStyle:hover {
+    background-color: #f0f0f0;
+}
+
+.demoStyle {
+    background-color: #3C83F6;
+    color: white;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 13px;
+    white-space: nowrap;   
+    flex-shrink: 0;         
+    transition: background-color 0.2s ease;
+}
+
+.demoStyle:hover {
+    background-color: #2563eb;
+}
+
+.demoStyle:disabled,
+.githubStyle:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Quita el width fijo — que el contenido defina el tamaño */
+.linkButton {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+    flex-wrap: wrap; 
+}
+
+.linkButton button img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* ── Loading ── */
 .styleLoading {
     position: fixed;
     inset: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
     background-color: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     font-size: small;

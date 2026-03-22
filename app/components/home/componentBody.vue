@@ -1,42 +1,35 @@
 <template>
-  <div class="backgroundBody">
-    <section class="infoContent">
+  <main class="backgroundBody">
+    <section class="infoContent" aria-labelledby="titulo-principal">
+
       <div class="flex-text">
         <div class="tituloPrincipal">
-          <p id="title">Desarrollador</p>
-          <p class="textGradient">Full Stack</p>
+          <h1 id="titulo-principal">Desarrollador</h1>
+          <span class="textGradient" aria-hidden="true">Full Stack</span>
         </div>
       </div>
+
       <p class="description">
-        Transformando ideas en experiencias digitales excepcionales con <br/> código limpio y marcas fuertes
+        Transformando ideas en experiencias digitales excepcionales con
+        código limpio y marcas fuertes
       </p>
+
       <div class="btn">
-        <nuxt-link to="/proyect"><button class="verProyecto"><span>Ver proyectos</span></button></nuxt-link>
-        <nuxt-link to="/contacto"><button class="contacto"><span>Contactar</span></button></nuxt-link>
+        <nuxt-link to="/proyect" class="verProyecto">
+          <span>Ver proyectos</span>
+        </nuxt-link>
+        <nuxt-link to="/contacto" class="contacto">
+          <span>Contactar</span>
+        </nuxt-link>
       </div>
+
     </section>
-  </div>
+  </main>
 </template>
 
-<script>
-import {RouterView, RouterLink} from 'vue-router'
-export default {
-  components: {
-    RouterLink,
-    RouterView
-  },
-  data() {
-    return {
-    }
-  },
-  methods: {
-    goHomeCompleted () {
-      console.log('ir a otra pagina');
-      this.$router.push({ name: 'homeCompleted'})
-    }
-  }
-}
+<script setup>
 </script>
+
 <style scoped>
 @import '@/assets/css/StyleBody.css';
 </style>

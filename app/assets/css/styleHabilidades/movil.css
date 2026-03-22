@@ -1,19 +1,80 @@
+/* ── Tablet grande (max 1024px) ── */
+@media screen and (max-width: 1024px) {
+    .contentAbility {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .background {
+        padding: 40px 40px;
+    }
+}
+
+/* ── Tablet pequeña (max 769px) ── */
 @media screen and (max-width: 769px) {
-    .content{
+    .background {
+        padding: 30px 20px;
+    }
+
+    .content {
         text-align: center;
     }
-    .contentAbility{
-        grid-template-columns: repeat(1, 1fr);
-        grid-template-columns: repeat(1, auto);
-        gap: 10px;
+
+    .content > p {
+        font-size: medium;
+        margin-bottom: 25px;
     }
-    .background{
-        padding: 20px 10px;
+
+    .contentAbility {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
     }
-    .itemAbility{
+
+    .itemAbility {
+        padding: 20px;
+        border-radius: 20px;
+        box-shadow: 2px 1px 3px 1px rgba(0, 0, 0, 0.08);
+    }
+
+    h2 {
+        font-size: medium;
+        margin-bottom: 12px;
+    }
+
+    .skill-name,
+    .skill-percent {
+        font-size: 13px;
+    }
+}
+
+/* ── Móvil (max 480px) ── */
+@media screen and (max-width: 480px) {
+    .background {
+        padding: 20px 15px;
+    }
+
+    .contentAbility {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .itemAbility {
         width: 90%;
-        padding: 10px 10px 35px 10px;
-        margin: 0 auto 0 auto;
+        margin: 0 auto;
+        padding: 18px 18px 28px;
         border-radius: 15px;
+    }
+
+    h1 {
+        font-size: x-large;
+    }
+
+    .content > p {
+        font-size: small;
+        margin-bottom: 20px;
+    }
+
+    .skill-bar {
+        height: 10px;
     }
 }

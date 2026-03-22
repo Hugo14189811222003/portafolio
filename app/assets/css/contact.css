@@ -5,10 +5,10 @@
     padding: 60px 10px;
 }
 
-.contentGradient h1 {
+.contentGradient h2 {
     font-size: 40px;
 }
-.contentGradient h2 {
+.contentGradient p {
     font-size: 24px;
 }
 .contentGradient button{

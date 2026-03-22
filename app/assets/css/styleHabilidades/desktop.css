@@ -1,60 +1,103 @@
-.background{
+.background {
     background: #F5F5F5;
     display: flex;
     padding: 40px 70px;
     justify-content: center;
 }
-h1{
+
+h1 {
     font-weight: bold;
     font-size: xx-large;
     line-height: 1;
     letter-spacing: 1.5px;
+    margin: 0 0 8px 0;
 }
-h2{
+
+/* Subtítulo — era h2, ahora es <p> */
+.content > p {
     font-size: large;
     color: rgb(28, 28, 28);
     font-weight: 500;
     letter-spacing: 1.5px;
     margin-bottom: 40px;
 }
+
+/* h2 = nombre de categoría dentro de cada sección */
+h2 {
+    font-size: large;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+}
+
 .content {
     display: flex;
     flex-direction: column;
     width: 100%;
     padding: 10px;
 }
+
+/* Grid de categorías */
 .contentAbility {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-template-columns: repeat(3, auto);
     gap: 30px;
 }
-.itemAbility{
+
+.itemAbility {
     background-color: white;
     padding: 25px;
     border-radius: 50px;
     box-shadow: 3px 1px 3px 2px rgba(0, 0, 0, 0.1);
-    width: 85%;
 }
-/*Porcentaje*/
-.skill-header{
+
+/* Resetea la <ul> de items de habilidad */
+.itemAbility ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.itemAbility li {
+    display: block;
+}
+
+/* Barra de progreso */
+.skill-header {
     display: flex;
     justify-content: space-between;
-    margin: 10px 0;
-
+    align-items: center;
+    margin: 10px 0 6px;
 }
-.skill-bar{
+
+.skill-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: rgb(28, 28, 28);
+}
+
+.skill-percent {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgb(100, 100, 100);
+}
+
+.skill-bar {
     height: 12px;
     width: 100%;
     overflow: hidden;
     background: #c0c0c0;
     border-radius: 50px;
 }
-.skill-progress{
+
+.skill-progress {
     height: 100%;
     border-radius: 50px;
     background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    transition: width 0.6s ease;
 }
+
+/* Loading */
 .styleLoading {
     position: fixed;
     inset: 0;

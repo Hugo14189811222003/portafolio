@@ -1,161 +1,162 @@
 <template>
   <div class="background">
     <h1>Contacto</h1>
-    <h2>¿Tienes un proyecto en mente? ¡Hablemos!</h2>
-    <div class="content">
+    <p>¿Tienes un proyecto en mente? ¡Hablemos!</p>
+
+    <div v-if="pending" class="styleLoading">Cargando...</div>
+    <div v-else-if="error">Error al cargar información de contacto.</div>
+
+    <main v-else class="content">
 
       <!-- FORMULARIO -->
-      <div class="form">
-        <h3>Envía un mensaje</h3>
-        <h4>Completa el formulario y te responderé en 24 horas</h4>
-        <div class="inputsLabel">
-          <label for="name">Nombre</label>
-          <input type="text" id="name" placeholder="Tu nombre completo" v-model="name"/>
+      <section class="form" aria-label="Formulario de contacto">
+        <h2>Envía un mensaje</h2>
+        <p>Completa el formulario y te responderé en 24 horas</p>
+        <form @submit.prevent="enviarMensaje" novalidate>
+          <div class="inputsLabel">
 
-          <label for="email">Correo electrónico</label>
-          <input type="email" id="email" placeholder="Tu correo electrónico" v-model="email"/>
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Tu nombre completo"
+              v-model="name"
+              autocomplete="name"
+              required
+            />
 
-          <label for="textarea">Mensaje</label>
-          <textarea name="text" id="textarea" placeholder="Escribe tu mensaje" v-model="message"></textarea>
+            <label for="email">Correo electrónico</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Tu correo electrónico"
+              v-model="email"
+              autocomplete="email"
+              required
+            />
 
-          <button class="buttonMensaje" @click="enviarMensaje">Enviar Mensaje</button>
-          <div class="loading" v-if="loading" style="margin-top: 10px; color: #3C83F6; text-align: center;">Enviando...</div>
-        </div>
-      </div>
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Escribe tu mensaje"
+              v-model="message"
+              required
+            />
+
+            <button
+              type="submit"
+              class="buttonMensaje"
+              :disabled="loadingPost"
+              :aria-busy="loadingPost"
+            >
+              {{ loadingPost ? 'Enviando...' : 'Enviar Mensaje' }}
+            </button>
+
+          </div>
+        </form>
+      </section>
 
       <!-- INFORMACIÓN DE CONTACTO -->
-      <div class="complement">
-        <div class="contentContactInfo">
-          <div class="itemContact" v-for="item in contact" :key="item.id">
-            <div class="containerContact">
-              <div class="textInfo">
-                <span class="type"><span class="icon">{{ iconCorreo }}</span>{{ item.email }}</span>
-                <span class="type"><span class="icon">{{ iconTelefono }}</span>{{ item.telefono }}</span>
-                <span class="type"><span class="icon">{{ iconUbicacion }}</span>{{ item.direccion }}</span>
-              </div>
-            </div>
-          </div>
-        </div>
+      <aside class="complement" aria-label="Información de contacto">
+        <section class="contentContactInfo">
+          <ul>
+            <li class="itemContact" v-for="item in contact" :key="item.id">
+              <address>
+                <span class="type">
+                  <span class="icon" aria-hidden="true">📧</span>
+                  <a :href="`mailto:${item.email}`">{{ item.email }}</a>
+                </span>
+                <span class="type">
+                  <span class="icon" aria-hidden="true">📞</span>
+                  <a :href="`tel:${item.telefono}`">{{ item.telefono }}</a>
+                </span>
+                <span class="type">
+                  <span class="icon" aria-hidden="true">📍</span>
+                  {{ item.direccion }}
+                </span>
+              </address>
+            </li>
+          </ul>
+        </section>
         <div class="ContentAction">
-          <span>¿Listo para empezar?</span>
-          <span>Estoy disponible para proyectos freelance y colaboraciones a largo plazo.</span>
+          <p>¿Listo para empezar?</p>
+          <p>Estoy disponible para proyectos freelance y colaboraciones a largo plazo.</p>
         </div>
-      </div>
+      </aside>
 
-    </div>
+    </main>
 
     <!-- MODAL DE ÉXITO -->
-    <div v-if="modalVisible" class="modal-overlay" @click="cerrarModal">
+    <div
+      v-if="modalVisible"
+      class="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modal-title"
+      @click="cerrarModal"
+    >
       <div class="modal-content" @click.stop>
-        <span class="checkmark">✔️</span>
-        <h3>¡Mensaje enviado!</h3>
+        <span aria-hidden="true">✔️</span>
+        <h2 id="modal-title">¡Mensaje enviado!</h2>
         <p>Pronto estaré contactándote.</p>
         <button @click="cerrarModal">Cerrar</button>
       </div>
     </div>
-    <div class="styleLoading" v-if="loadingGet">Cargando{{ puntos }}</div>
+
   </div>
 </template>
 
-<script>
-import { useContactoApi } from '@/composable/contacto/useContactoApi';
-export default {
-  data() {
-    return {
-      puntos: '',
-      interval: null,
-      loadingGet: false,
-        loading: false,
-      // Datos de contacto
-      contact: [
-      ],
-      iconTelefono: '📞',
-      iconCorreo: '📧',
-      iconUbicacion: '📍',
-      // Campos del formulario
-      name: '',
-      email: '',
-      message: '',
-      // Modal de éxito
-      modalVisible: false
-    }
-  },
-  async mounted() {
-    await this.getContacto();
-  },
-  methods: {
-    async getContacto() {
-      try {
-        this.loadingGet = true;
-        this.interval = setInterval(() => {
-          this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
-        }, 500)
-        const user = 2;
-        /* Obteniendo la informacion de contacto */
-        const response = await useContactoApi().getContacto();
-        console.log("datos obtenidos de contacto", response);
-        /* Obteniendo la informacion de contacto */
-        const userContacto = response.filter(item => item.id_usuario === user);
-        console.log("datos obtenidos de contacto de user", userContacto);
-        this.contact = userContacto.map((item) => {
-          return {
-            email: item.email,
-            telefono: item.telefono,
-            direccion: item.direccion
-          }
-        })
-      } catch (error) {
-        console.log('Error de servidor: ', error);
-      } finally {
-        this.loadingGet = false;
-        clearInterval(this.interval);
-      }
-    },
-    async enviarMensaje() {
-        this.loading = true;
-      if (!this.name || !this.email || !this.message) {
-        alert('Por favor completa todos los campos'); // todavía usamos alert para error de validación
-        this.loading = false;
-        return;
-      }
+<script setup>
+const USER = 2
+const config = useRuntimeConfig()
 
-      try {
-        const apiBase = this.$config.public.apiBase;
+// ✅ GET con caché
+const { data, pending, error } = await useContactoApi().getContacto(USER)
 
-        const res = await fetch(apiBase, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({
-            name: this.name,
-            email: this.email,
-            message: this.message
-          })
-        });
+const contact = computed(() =>
+  (data.value ?? []).map(item => ({
+    email: item.email,
+    telefono: item.telefono,
+    direccion: item.direccion
+  }))
+)
 
-        if (res.ok) {
-          // Mostrar modal de éxito
-          this.modalVisible = true;
-          // Limpiar formulario
-          this.name = '';
-          this.email = '';
-          this.message = '';
-        } else {
-          alert('Error al enviar el mensaje ❌');
-        }
+// Formulario
+const name       = ref('')
+const email      = ref('')
+const message    = ref('')
+const loadingPost = ref(false)
+const modalVisible = ref(false)
 
-      } catch (error) {
-        console.error(error);
-        alert('Error de conexión con el servidor ❌');
-      } finally {
-        this.loading = false;
-      }
-    },
-    cerrarModal() {
-      this.modalVisible = false;
-    }
+async function enviarMensaje() {
+  if (!name.value || !email.value || !message.value) {
+    alert('Por favor completa todos los campos')
+    return
   }
+
+  loadingPost.value = true
+  try {
+    const res = await $fetch(config.public.apiBase, {
+      method: 'POST',
+      body: { name: name.value, email: email.value, message: message.value }
+    })
+
+    modalVisible.value = true
+    name.value    = ''
+    email.value   = ''
+    message.value = ''
+  } catch (err) {
+    alert('Error al enviar el mensaje ❌')
+  } finally {
+    loadingPost.value = false
+  }
+}
+
+function cerrarModal() {
+  modalVisible.value = false
 }
 </script>
 

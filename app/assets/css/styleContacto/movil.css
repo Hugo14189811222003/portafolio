@@ -1,43 +1,108 @@
 @media screen and (max-width: 769px) {
-    .background{
+
+    .background {
         background: #F5F5F5;
         display: flex;
         flex-direction: column;
         padding: 35px 30px;
         justify-content: center;
     }
-    .content{
-        flex-direction: column;
+
+    /* Subtítulo — era h2, ahora es p */
+    .background > p {
+        font-size: medium;
+        margin-bottom: 25px;
     }
-    .complement{
-        width: 100%;
-    }
-    .form{
-        width: 100%;
-        padding: 0;
-    }
-    .buttonMensaje{
-        width: 60%;
-    }
-    h4{
-        margin: 15px 20px 15px 20px;
-    }
-    h3{
-        margin: 15px 20px 15px 20px;
+
+    h2 {
+        margin: 15px 20px;
         font-size: x-large;
         font-weight: bold;
     }
-    input{
-        margin: 0 20 0 20;
+
+    h3 {
+        margin: 15px 20px;
+        font-size: large;
+        font-weight: bold;
     }
-    .buttonMensaje{
+
+    h4 {
+        margin: 15px 20px;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .complement {
+        width: 100%;
+    }
+
+    .form {
+        width: 100%;
+        padding: 0;
+    }
+    .form p{
+        padding: 15px;
+        margin-left: 10px;
+    }
+
+    /* El <form> no agrega layout extra */
+    .form form {
+        display: contents;
+    }
+
+    input {
+        margin: 10px 20px;
+    }
+
+    textarea {
+        height: 80px;
+        margin: 0 20px;
+    }
+
+    .buttonMensaje {
+        width: 60%;
         margin-bottom: 20px;
         margin-top: 20px;
     }
-    textarea{
-        height: 80px;
+
+    /* Resetea lista de contacto en móvil */
+    .contentContactInfo ul {
+        padding: 0;
+        margin: 0;
     }
-    .ContentAction{
-        margin-bottom: 1px;
+
+    .itemContact {
+        margin-top: 15px;
+    }
+
+    /* Links de contacto más fáciles de tocar */
+    .textInfo a {
+        padding: 4px 0;
+        display: inline-block;
+    }
+
+    .ContentAction {
+        margin-bottom: 20px;
+    }
+
+    /* Textos de acción en móvil */
+    .ContentAction p:first-of-type {
+        font-size: large;
+    }
+
+    .ContentAction p:last-of-type {
+        font-size: small;
+    }
+
+    /* Modal adaptado a móvil */
+    .modal-content {
+        padding: 1.5rem;
+        width: 85%;
+    }
+
+    .modal-content h2 {
+        font-size: 1.2rem;
     }
 }

@@ -1,92 +1,77 @@
 <template>
-    <div class="background">
-        <div class="content">
-            <h1>Habilidades</h1>
-            <h2>Tecnologías y herramientas con las que trabajo día a día</h2>
-            <div class="contentAbility">
-                <div class="itemAbility" v-for="(categories, index) in skill.category" :key="index">
-                    <h3>{{ categories.name }}</h3>
-                    <div 
-                        class="itemsContentAbility"
-                        v-for="(items, index) in categories.technologies"
-                        :key="index"
-                        >
-                    <div class="skill-header">
-                        <span class="skill-name">{{ items.name }}</span>
-                        <span class="skill-percent">{{ items.percent }}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div 
-                        class="skill-progress" 
-                        :style="{ width: items.percent + '%' }"
-                        >
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div class="styleLoading" v-if="isLoading">Cargando{{ puntos }}</div>
-        </div>
-    </div>
+  <div class="background">
+    <main class="content">
+      <h1>Habilidades</h1>
+      <p>Tecnologías y herramientas con las que trabajo día a día</p>
+
+      <div v-if="pending" class="styleLoading">Cargando...</div>
+      <div v-else-if="error">Error al cargar habilidades.</div>
+
+      <div v-else class="contentAbility">
+        <section
+          class="itemAbility"
+          v-for="(cat, index) in categorias"
+          :key="index"
+          :aria-label="cat.name"
+        >
+          <h2>{{ cat.name }}</h2>
+          <ul>
+            <li
+              class="itemsContentAbility"
+              v-for="(item, i) in cat.technologies"
+              :key="i"
+            >
+              <div class="skill-header">
+                <span class="skill-name">{{ item.name }}</span>
+                <span class="skill-percent" aria-label="`${item.percent} por ciento`">
+                  {{ item.percent }}%
+                </span>
+              </div>
+              <div
+                class="skill-bar"
+                role="progressbar"
+                :aria-valuenow="item.percent"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                :aria-label="`Nivel de ${item.name}`"
+              >
+                <div
+                  class="skill-progress"
+                  :style="{ width: item.percent + '%' }"
+                />
+              </div>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </main>
+  </div>
 </template>
 
-<script>
-import { useHabilidadesApi } from '@/composable/habilidades/useHabilidadesApi';
-import { useHabilidadItemApi } from '@/composable/habilidades/habilidadItems/useHabilidadItemApi';
-export default {
-    data(){
-        return {
-            puntos: '',
-            finallyInterval: null,
-            skill: {
-                category: []
-            },
-            isLoading: false
-        }
-    },
-    async mounted() {
-        await this.getSkill();
-    },
-    methods: {
-        async getSkill() {
-            try {
-                const user = 2;
-                this.isLoading = true
-                const interval = setInterval(() => {
-                    this.puntos = this.puntos.length < 3 ? this.puntos + "." : "";
-                }, 500)
-                this.finallyInterval = interval;
-                /* Obteniendo la categoria de habilidades */ 
-                const response = await useHabilidadesApi().getHabilidades();
-                console.log("datos obtenidos de habilidades", response);
-                /* habilidades de usuario */
-                const userHabilidades = response.filter(item => item.id_usuario === user);
-                console.log("datos obtenidos de habilidades de usuario", userHabilidades);
-                /* Obteniendo todos los items de habilidad */
-                const reponseItems = await useHabilidadItemApi().getHabilidadesItem();
-                console.log("datos obtenidos de items de habilidad", reponseItems);
-                /* Obteniendo los items de la habilidad especificas */
-                this.skill.category = userHabilidades.map((habilidad) => {
-                    return {
-                        name: habilidad.titulo,
-                        technologies: reponseItems.filter((item) => item.id_habilidad === habilidad.id).map((item) => {
-                            return {
-                                name: item.titulo,
-                                percent: item.porcentaje
-                            }
-                        })
-                    }
-                })
-                console.log("datos obtenidos de habilidades", this.skill);
-            } catch (error){
-                console.log('Problema al tratar de obtener el servidor', error);
-            } finally {
-                this.isLoading = false;
-                clearInterval(this.finallyInterval);
-            }
-        }
-    }
-};
+<script setup>
+const USER = 2
+
+// ✅ 2 requests en paralelo con caché
+const [
+  { data: habilidades, pending: p1, error: e1 },
+  { data: items,       pending: p2, error: e2 }
+] = await Promise.all([
+  useHabilidadesApi().getHabilidades(USER),
+  useHabilidadItemApi().getHabilidadesItem()
+])
+
+const pending = computed(() => p1.value || p2.value)
+const error   = computed(() => e1.value || e2.value)
+
+// Mapeo reactivo de categorías con sus items
+const categorias = computed(() =>
+  (habilidades.value ?? []).map(hab => ({
+    name: hab.titulo,
+    technologies: (items.value ?? [])
+      .filter(item => item.id_habilidad === hab.id)
+      .map(item => ({ name: item.titulo, percent: item.porcentaje }))
+  }))
+)
 </script>
 
 <style scoped>

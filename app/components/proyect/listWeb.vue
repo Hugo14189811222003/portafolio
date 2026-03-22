@@ -9,17 +9,15 @@
         <p>{{ item.description }}</p>
         <div class="lenguage" v-if="item.lenguaje.length">
           <ul>
-            <li v-for="(tech, index) in item.lenguaje" :key="index">
-              {{ tech }}
-            </li>
+            <li v-for="(tech, index) in item.lenguaje" :key="index">{{ tech }}</li>
           </ul>
         </div>
         <div v-for="(itemLink, index) in item.socialMedia" :key="index" class="linkButton">
           <button class="githubStyle" @click="openLink(itemLink.link)">
-            <img :src="gitHub" alt="gitHub">
+            <img :src="gitHubImg" alt="" />
             <span>GitHub</span>
           </button>
-          <button class="demoStyle" @click="openDemo(item.webSite)">Demo</button>
+          <button class="demoStyle" @click="openLink(item.webSite)">Demo</button>
         </div>
       </div>
     </div>
@@ -29,34 +27,10 @@
   </div>
 </template>
 
-<script>
-import webHugo from '@/assets/img/png/portafolioWeb.png'
-import gitHub from '@/assets/img/png/github.png'
-
-export default {
-  props: {
-    proyect: {
-      type: Array,
-      default: () => []
-    }
-  },
-  data() {
-    return {
-      gitHub
-    }
-  },
-  methods: {
-    openLink(url) {
-      if(url) window.open(url, "_blank");
-    },
-    openDemo(url) {
-      if(url) window.open(url, "_blank");
-    }
-  }
+<script setup>
+import gitHubImg from '@/assets/img/png/github.png'
+defineProps({ proyect: { type: Array, default: () => [] } })
+function openLink(url) {
+  if (url) window.open(url, '_blank')
 }
 </script>
-
-<style scoped>
-@import '@/assets/css/styleProyect/desktop.css';
-@import '@/assets/css/styleProyect/movil.css';
-</style>

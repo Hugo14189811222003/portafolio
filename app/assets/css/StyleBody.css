@@ -1,146 +1,212 @@
-/*Desktop*/
+/* ── Desktop ── */
+
+.backgroundBody {
+    background-color: #F5F5F5;
+    width: 100%;
+    height: auto;
+}
+
+.infoContent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
 .flex-text {
-  font-size: 90px;
-  font-weight: bold;
+    font-size: 90px;
+    font-weight: bold;
 }
-.flex-text .tituloPrincipal{
-  gap: 2rem;
-  display: flex;
+
+.flex-text .tituloPrincipal {
+    gap: 2rem;
+    display: flex;
+    align-items: baseline;
 }
-.flex-text p{
-  margin: 0;
-  padding: 5rem 0 0;
+
+/* h1 — era <p id="title"> */
+.tituloPrincipal h1 {
+    margin: 0;
+    padding: 5rem 0 0;
+    font-size: inherit;       /* hereda los 90px del padre */
+    font-weight: inherit;
+    line-height: 1;
+    letter-spacing: inherit;
 }
-.flex-text .textGradient {
-  background: linear-gradient(90deg, #FF00FB, #8A38F5);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+
+/* span del Full Stack */
+.tituloPrincipal .textGradient {
+    margin: 0;
+    padding: 5rem 0 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: 1;
+    background: linear-gradient(90deg, #FF00FB, #8A38F5);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-.description{
-  font-weight: normal;
-  font-size: 24px;
-  text-align: center;
+
+.description {
+    font-weight: normal;
+    font-size: 24px;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 600px;         /* limita el ancho para mejor legibilidad */
 }
-.backgroundBody{
-  background-color: #F5F5F5;
-  width: 100%;
-  height: auto;
-}
-.infoContent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-/*boton estilos*/
+
+/* ── Botones — ahora son <nuxt-link> ── */
 .btn {
-  margin-top: 25px;
-  padding-bottom: 80px;
+    margin-top: 25px;
+    padding-bottom: 80px;
+    display: flex;
+    gap: 1rem;
 }
-.btn button{
-  padding: 1rem 3rem;
-  margin-left: 2rem;
-  margin-right: 2rem;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: large;
+
+.btn a {
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: large;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .verProyecto {
-  overflow: hidden;
-  position: relative;
-  background-color: black;
-  border: transparent;
-  color: white;
-  transition: color 0.3s ease;
+    overflow: hidden;
+    position: relative;
+    background-color: black;
+    border: 2px solid transparent;
+    color: white;
+    transition: color 0.3s ease;
 }
+
 .verProyecto::before {
-  position: absolute;
-  inset: 0;
-  content: '';
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  background: linear-gradient(180deg, #FF00FB, #8A38F5);
-  z-index: 0;
+    position: absolute;
+    inset: 0;
+    content: '';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background: linear-gradient(180deg, #FF00FB, #8A38F5);
+    z-index: 0;
 }
+
 .verProyecto:hover::before {
-  opacity: 1;
-  transition: opacity 0.3s ease;
+    opacity: 1;
 }
+
 .verProyecto > span {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
+
 .contacto {
-  background: white;
-  color: black;
-  border: solid 2px black;
-  font-weight: bold;
+    background: white;
+    color: black;
+    border: 2px solid black;
+    transition: background-color 0.2s ease;
 }
 
-/*Table*/
+.contacto:hover {
+    background-color: #f0f0f0;
+}
+
+/* ── Tablet (max 912px) ── */
 @media screen and (max-width: 912px) {
-  .flex-text .tituloPrincipal{
-      margin: 40px 0px;
-      font-size: 90px;
-      text-align: center;
-      gap: 0rem;
-      display: flex;
-      flex-direction: column;
+    .flex-text .tituloPrincipal {
+        margin: 40px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        text-align: center;
     }
-    .textGradient {
-      font-size: 90px;
+
+    .tituloPrincipal h1,
+    .tituloPrincipal .textGradient {
+        padding: 0;
+        font-size: 90px;
     }
-    .flex-text p{
-      margin: 0;
-      padding: 0;
+
+    .description {
+        font-size: 18px;
+        margin-bottom: 30px;
     }
-    .description{
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+
     .btn {
-      gap: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
-    .btn button{
-      padding: 1.2rem 3.2rem;
+
+    .btn a {
+        padding: 1.2rem 3.2rem;
     }
 }
 
-/*MOVIL*/
-
+/* ── Móvil (max 768px) ── */
 @media screen and (max-width: 768px) {
-    .flex-text .tituloPrincipal{
-      margin: 40px 0px;
-      font-size: 50px;
-      text-align: center;
-      gap: 0rem;
-      display: flex;
-      flex-direction: column;
+    .flex-text {
+        font-size: 50px;
     }
-    .textGradient {
-      font-size: 60px;
+
+    .flex-text .tituloPrincipal {
+        margin: 40px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+        text-align: center;
     }
-    .flex-text p{
-      margin: 0;
-      padding: 0;
+
+    .tituloPrincipal h1 {
+        font-size: inherit;
     }
-    .description{
-      font-size: 18px;
-      margin-bottom: 30px;
+
+    .tituloPrincipal .textGradient {
+        font-size: 60px;
     }
+
+    .tituloPrincipal h1,
+    .tituloPrincipal .textGradient {
+        padding: 0;
+    }
+
+    .description {
+        font-size: 18px;
+        margin-bottom: 30px;
+        padding: 0 20px;
+    }
+
     .btn {
-      gap: 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
     }
-    .btn button{
-      padding: 1.2rem 3.2rem;
+
+    .btn a {
+        padding: 1.2rem 3.2rem;
+        width: 70%;
+        text-align: center;
+    }
+}
+
+/* ── Móvil pequeño (max 480px) ── */
+@media screen and (max-width: 480px) {
+    .flex-text {
+        font-size: 40px;
+    }
+
+    .tituloPrincipal .textGradient {
+        font-size: 48px;
+    }
+
+    .description {
+        font-size: 16px;
+    }
+
+    .btn a {
+        width: 85%;
     }
 }

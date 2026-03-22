@@ -1,4 +1,6 @@
-.header-content{
+/* ── Header ── */
+.header-content {
+    position: sticky;       /* sticky en lugar de nada — se queda arriba al scroll */
     top: 0;
     left: 0;
     right: 0;
@@ -9,72 +11,65 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border: solid rgba(0, 0, 0, 0.173) 2px;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.173); /* solo borde inferior */
+    box-sizing: border-box;
 }
-.logoDev{
+
+/* ── Logo ── */
+.logoDev {
     margin-left: 3rem;
+    display: flex;
+    align-items: center;
 }
-.headersNavigation{
+
+.logoDev a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Protege el logo de CSS global de otras páginas */
+.logoDev img {
+    width: 40px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+    display: block;
+}
+
+/* ── Navegación desktop ── */
+.headersNavigation {
     margin-right: 3rem;
 }
-.logoDev h1{
-    font-size: 24px;
-}
-.headersNavigation nav ul{
+
+.headersNavigation ul {
     list-style: none;
     display: flex;
-    gap: 5rem;
+    gap: 3rem;
+    margin: 0;
+    padding: 0;
 }
-.headersNavigation nav ul li a{
+
+.headersNavigation ul li a {
     text-decoration: none;
     color: black;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: opacity 0.2s ease;
 }
-.headersNavigation nav ul li.active a{
+
+.headersNavigation ul li a:hover {
+    opacity: 0.7;
+}
+
+.headersNavigation ul li.active a {
     background: linear-gradient(90deg, #FF00FB, #8A38F5);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
-/*aside movil*/
-@media (max-width: 768px) {
-    .headersNavigation {
-        position: fixed;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 70%;
-        max-width: 300px;
-        height: 100vh;
-        background-color: rgb(255, 255, 255);
-        box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.438);
-        z-index: 1000;
-        bottom: 0;
-        right: -100%;
-        top: 0;
-        transition: all 0.5s ease;
-        
-    }
-    .headersNavigation.open {
-        right: -12%;
-    }
-    .headersNavigation nav ul{
-        list-style: none;
-        display: flex;
-        flex-direction: column;
-    }
-    .headersNavigation nav ul li{
-        font-size: x-large;
-        text-align: center;
-    }
-}
-/*side desktop*/
-@media (min-width: 769px) {
-    .headersNavigation{
-        position: static;
-    }
-}
-/*icon menu*/
-.menu-toggle{
+/* ── Botón hamburguesa ── */
+.menu-toggle {
     display: none;
     position: relative;
     width: 30px;
@@ -85,52 +80,121 @@
     margin: 0;
     z-index: 1200;
     cursor: pointer;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
 .menu-toggle span {
     position: absolute;
     background: black;
     width: 100%;
     height: 3px;
     left: 0;
-    right: 0;
-    margin: auto;
     border-radius: 3px;
-    transition: transform 0.28s ease, width 0.2s ease;
+    transition: transform 0.28s ease, width 0.2s ease, opacity 0.2s ease;
 }
-.menu-toggle span:nth-child(1) { top: 6px; }
-.menu-toggle span:nth-child(2) { top: 12.5px; }
-.menu-toggle span:nth-child(3) { top: 19px; }
 
-/*animacion de icon estando abierto*/
+.menu-toggle span:nth-child(1) { top: 8px; }
+.menu-toggle span:nth-child(2) { top: 17px; }
+.menu-toggle span:nth-child(3) { top: 26px; }
 
+/* Animación abierto → X */
 .menu-toggle span.open:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
-
 .menu-toggle span.open:nth-child(2) {
-    width: 10%;
+    width: 0;
+    opacity: 0;
 }
-
 .menu-toggle span.open:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
-}
-.menu-toggle.open{
-    position: fixed;
-    top: 1%;
-    left: 83%;
+    transform: translateY(-9px) rotate(-45deg);
 }
 
-/*aside - menu lateral*/
+/* Overlay oscuro detrás del menú móvil */
+.menu-overlay {
+    display: none;
+}
 
-
-/*MOVIL*/
-
-@media (max-width: 768px) {
-    .menu-toggle{
-        display: flex;
-        margin-right: 40px;
-        margin-top: 10px;
+/* ── Desktop ── */
+@media (min-width: 769px) {
+    .headersNavigation {
+        position: static;
+    }
+    .menu-toggle {
+        display: none !important;
     }
 }
-@media screen and (max-width: 360px) {
+
+/* ── Móvil ── */
+@media (max-width: 768px) {
+
+    .menu-toggle {
+        display: flex;
+        margin-right: 1.5rem;
+    }
+
+    /* El botón NO se mueve — se queda en el header */
+    .menu-toggle.open {
+        position: relative;
+        top: auto;
+        left: auto;
+    }
+
+    /* Panel lateral */
+    .headersNavigation {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        max-width: 300px;
+        height: 100vh;
+        background-color: white;
+        box-shadow: -4px 0 12px rgba(0, 0, 0, 0.15);
+        z-index: 1100;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: right 0.35s ease;
+        margin-right: 0;
+    }
+
+    .headersNavigation.open {
+        right: 0;         /* entra completamente — era -12% lo que dejaba un gap */
+    }
+
+    .headersNavigation ul {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+        padding: 0;
+    }
+
+    .headersNavigation ul li {
+        font-size: x-large;
+    }
+
+    .headersNavigation ul li a {
+        font-size: inherit;
+    }
+
+    /* Overlay que oscurece el fondo al abrir el menú */
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1050;
+    }
+}
+
+/* ── Móvil pequeño ── */
+@media (max-width: 480px) {
+    .logoDev {
+        margin-left: 1.5rem;
+    }
+
+    .headersNavigation {
+        width: 80%;
+    }
 }

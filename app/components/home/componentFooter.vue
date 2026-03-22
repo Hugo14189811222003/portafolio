@@ -2,11 +2,11 @@
     <div class="contentFooterContact">
         <div class="contentFooterItems">
             <div class="itemFooter">
-                <h1>DevPortafolio-Hugo</h1>
+                <h2>DevPortafolio-Hugo</h2>
                 <p>Desarrollador Full Stack y creador <br> de marcas poderosas.</p>
             </div>
             <div class="itemLinks">
-                <h1>Enlaces rapidos</h1>
+                <h2>Enlaces rapidos</h2>
                 <ul>
                     <nuxt-link to="/"><li>Inicio</li></nuxt-link>
                     <nuxt-link to="/sobreMi"><li>Sobre mí</li></nuxt-link>
@@ -16,7 +16,7 @@
                 </ul>
             </div>
             <div class="itemImg">
-                <h1>Redes de contacto</h1>
+                <h2>Redes de contacto</h2>
                 <div class="itemImgItem">
                     <a href="https://github.com/Hugo14189811222003/" target="_blank"><img :src="GitHubIcon" alt="github.com"></a>
                     <a href="https://www.facebook.com/hugo.arcos.403811/" target="_blank"><img :src="FacebookIcon" alt="facebook.com"></a>
