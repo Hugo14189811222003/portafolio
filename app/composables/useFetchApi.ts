@@ -5,13 +5,19 @@ export const useFetchApi = <T = any>(
   options: any = {}
 ) => {
   const config = useRuntimeConfig()
+  const nuxtApp = useNuxtApp()
 
   return useAsyncData<T>(
     key,
     () => $fetch(url, {
       baseURL: config.public.apiUrl,
-      headers: { 'Content-Type': 'application/json' }, // 👈 va aquí, no en cada composable
+      headers: { 'Content-Type': 'application/json' },
       ...options
-    })
+    }),
+    {
+      getCachedData(key) {
+        return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
+      }
+    }
   )
 }
