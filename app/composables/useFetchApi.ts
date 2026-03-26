@@ -15,6 +15,7 @@ export const useFetchApi = <T = any>(
       ...options
     }),
     {
+      lazy: true, // 👈 muestra la página inmediatamente con loading
       getCachedData(key) {
         return nuxtApp.payload.data[key] ?? nuxtApp.static.data[key]
       }

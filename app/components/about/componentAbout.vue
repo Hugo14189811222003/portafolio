@@ -47,16 +47,10 @@
 <script setup>
 const USER = 2
 
-// 3 requests en paralelo con caché automático
-const [
-    { data: sobreMi,    pending: p1, error: e1 },
-    { data: experiencia, pending: p2, error: e2 },
-    { data: educacion,  pending: p3, error: e3 }
-] = await Promise.all([
-    useSobreMiApi().getSobreMi(USER),
-    useExperienciaApi().getExperiencia(USER),
-    useEducacionApi().getEducacion(USER),
-])
+// Sin await — lazy:true en useFetchApi se encarga del loading
+const { data: sobreMi,     pending: p1, error: e1 } = useSobreMiApi().getSobreMi(USER)
+const { data: experiencia, pending: p2, error: e2 } = useExperienciaApi().getExperiencia(USER)
+const { data: educacion,   pending: p3, error: e3 } = useEducacionApi().getEducacion(USER)
 
 const pending = computed(() => p1.value || p2.value || p3.value)
 const error   = computed(() => e1.value || e2.value || e3.value)
