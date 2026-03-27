@@ -184,3 +184,43 @@
   .description { font-size: 15px; }
   .btn a { width: 85%; }
 }
+
+/*three*/
+
+.infoContent {
+  position: relative;  /* ← ancla el canvas */
+  overflow: hidden;    /* ← figuras no salen del hero */
+  /* ... el resto igual ... */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-content a,
+.hero-content button {
+  pointer-events: auto;
+}
+
+/*three movil*/
+.shapes-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100% !important;
+  height: 100% !important;
+  pointer-events: auto;
+  z-index: 0;
+  cursor: default;
+}
+
+@media (max-width: 768px) {
+  .shapes-canvas {
+    /* Recorta cualquier figura que sobresalga del borde */
+    clip-path: inset(0);
+  }
+}
