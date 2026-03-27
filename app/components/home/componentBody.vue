@@ -2,11 +2,19 @@
   <main class="backgroundBody">
     <section class="infoContent" aria-labelledby="titulo-principal">
 
-      <div class="flex-text">
-        <div class="tituloPrincipal">
-          <h1 id="titulo-principal">Desarrollador</h1>
-          <span class="textGradient" aria-hidden="true">Full Stack</span>
+      <div class="headline">
+        <p class="line-dev" id="titulo-principal">Desarrollador</p>
+        <p class="line-fs textGradient">Full Stack</p>
+
+        <div class="divider-wrap" aria-hidden="true">
+          <span class="divider-line"></span>
+          <span class="divider-label">&amp; también</span>
+          <span class="divider-line"></span>
         </div>
+
+        <p class="line-dis">Diseñador</p>
+        <p class="line-graf textGradient">Gráfico</p>
+        <span class="raya" aria-hidden="true"></span>
       </div>
 
       <p class="description">
@@ -18,9 +26,7 @@
         <nuxt-link to="/proyect" class="verProyecto">
           <span>Ver proyectos</span>
         </nuxt-link>
-        <nuxt-link to="/contacto" class="contacto">
-          <span>Contactar</span>
-        </nuxt-link>
+        <nuxt-link to="/contacto" class="contacto">Contactar</nuxt-link>
       </div>
 
     </section>
