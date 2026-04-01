@@ -14,8 +14,8 @@
         </div>
         <div v-for="(itemLink, index) in item.socialMedia" :key="index" class="linkButton">
           <button class="githubStyle" @click="openLink(itemLink.link)">
-            <img :src="gitHubImg" alt="" />
-            <span>GitHub</span>
+            <img :src="behanceImg" alt="" />
+            <span>UX/UI</span>
           </button>
           <button class="demoStyle" @click="openLink(item.webSite)">Demo</button>
         </div>
@@ -28,7 +28,7 @@
 </template>
 
 <script setup>
-import gitHubImg from '@/assets/img/png/github.png'
+import behanceImg from '@/assets/img/png/behance.webp'
 defineProps({ proyect: { type: Array, default: () => [] } })
 function openLink(url) {
   if (url) window.open(url, '_blank')
